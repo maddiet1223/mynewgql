@@ -1,0 +1,15 @@
+component rendered
+query issued
+    |
+    |
+    |
+    |
+    |
+    |
+Query complete
+Rerender component
+
+its takes time for the data to be available to the component. The data is available only after the Rerender.
+
+
+fetched query should be refetched if it is for adding something new to the existing data
