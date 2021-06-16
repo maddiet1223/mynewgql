@@ -21,7 +21,7 @@ class SongList extends Component{
             return(
                 //to avoid the key warning 
                  <li key={id} className="collection-item">
-                    {title}
+                    <Link to={`/songs/${id}`}>{title}</Link>
                     <i
                     className="material-icons"
                     onClick={()=>this.onSongDelete(id)}
