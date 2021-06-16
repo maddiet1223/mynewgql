@@ -13,3 +13,8 @@ its takes time for the data to be available to the component. The data is availa
 
 
 fetched query should be refetched if it is for adding something new to the existing data
+
+
+link to refer :
+http://dev.apollodata.com/react/cache-updates.html
+

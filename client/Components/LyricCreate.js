@@ -34,12 +34,15 @@ class LyricCreate extends Component {
   }
 }
 
+//if we dont call id also in lyrics it wont rerender to display the newly added lyrics as apolloclient has been configured to identify each data inside the object with an id
 const mutation = gql`
   mutation AddLyricToSong($content: String, $songId: ID) {
     addLyricToSong(content: $content, songId: $songId) {
       id
       lyrics {
+        id
         content
+        likes
       }
     }
   }

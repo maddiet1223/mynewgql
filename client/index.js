@@ -1,35 +1,33 @@
-import React from 'react';
-import './style/style.css';
-import ReactDOM from 'react-dom';
-import { Router,Route,hashHistory,IndexRoute } from 'react-router';
-import ApolloClient from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
+import React from "react";
+import "./style/style.css";
+import ReactDOM from "react-dom";
+import { Router, Route, hashHistory, IndexRoute } from "react-router";
+import ApolloClient from "apollo-client";
+import { ApolloProvider } from "react-apollo";
 
-import App from './Components/App';
-import SongList from './Components/SongList';
-import SongCreate  from './Components/SongCreate';
-import SongDetail from './Components/SongDetail';
+import App from "./Components/App";
+import SongList from "./Components/SongList";
+import SongCreate from "./Components/SongCreate";
+import SongDetail from "./Components/SongDetail";
 
-
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  //o means object. it says apollo client to identify each record in the object with an id
+  dataIdFromObject: (o) => o.id,
+});
 
 const Root = () => {
   return (
     //layer between apollo layer and client
-  <ApolloProvider client={client}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={SongList}/>
-        <Route path="songs/new" component={SongCreate}/>
-        <Route path="songs/:id" component={SongDetail}/>
-       
-      </Route>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router history={hashHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={SongList} />
+          <Route path="songs/new" component={SongCreate} />
+          <Route path="songs/:id" component={SongDetail} />
+        </Route>
+      </Router>
+    </ApolloProvider>
+  );
+};
 
-  </ApolloProvider>
-  )};
-
-ReactDOM.render(
-  <Root />,
-  document.querySelector('#root')
-);
+ReactDOM.render(<Root />, document.querySelector("#root"));
